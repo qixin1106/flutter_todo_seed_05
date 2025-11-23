@@ -28,6 +28,8 @@ class HiveService {
   }
 
   static List<Task> getAllTasks() {
-    return _taskBox.values.toList();
+    final tasks = _taskBox.values.toList();
+    tasks.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+    return tasks;
   }
 }
